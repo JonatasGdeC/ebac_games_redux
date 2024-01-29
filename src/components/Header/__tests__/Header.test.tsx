@@ -17,7 +17,7 @@ describe('Teste para o componente header', () => {
               id: 1,
               categoria: 'RPG',
               imagem: '',
-              plataforma: ['Windows'],
+              plataformas: ['Windows'],
               preco: 150.9,
               precoAntigo: 199.9,
               titulo: 'Elden Ring'
@@ -26,7 +26,7 @@ describe('Teste para o componente header', () => {
               id: 2,
               categoria: 'RPG',
               imagem: '',
-              plataforma: ['Windows', 'PS5', 'Xbox Series S/X'],
+              plataformas: ['Windows', 'PS5', 'Xbox Series S/X'],
               preco: 199.9,
               precoAntigo: 299.9,
               titulo: 'Hogwarts Legacy'

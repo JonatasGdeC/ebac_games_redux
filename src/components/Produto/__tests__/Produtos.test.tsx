@@ -6,7 +6,7 @@ const jogo = {
   id: 2,
   categoria: 'RPG',
   imagem: '',
-  plataforma: ['Windows', 'PS5', 'Xbox Series S/X'],
+  plataformas: ['Windows', 'PS5', 'Xbox Series S/X'],
   preco: 199.9,
   precoAntigo: 299.9,
   titulo: 'Hogwarts Legacy'
@@ -19,7 +19,7 @@ describe('Testes para o componente produto', () => {
   })
 
   test('Deve renderizar um item ao carrinho', () => {
-    const { store } = renderizarComProvider(<Produto game={jogos} />)
+    const { store } = renderizarComProvider(<Produto game={jogo} />)
     const botao = screen.getByTestId('btn-adicionar-produto')
     fireEvent.click(botao)
 

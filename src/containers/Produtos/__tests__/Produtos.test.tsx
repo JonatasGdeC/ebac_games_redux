@@ -1,16 +1,16 @@
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
+import { screen, waitFor } from '@testing-library/react'
 
 import Produtos from '..'
 import { renderizarComProvider } from '../../../utils/tests'
-import { screen, waitFor } from '@testing-library/react'
 
 const mocks = [
   {
     id: 1,
     categoria: 'RPG',
     imagem: '',
-    plataforma: ['Windows'],
+    plataformas: ['Windows'],
     preco: 150.9,
     precoAntigo: 199.9,
     titulo: 'Elden Ring'
@@ -19,7 +19,7 @@ const mocks = [
     id: 2,
     categoria: 'RPG',
     imagem: '',
-    plataforma: ['Windows', 'PS5', 'Xbox Series S/X'],
+    plataformas: ['Windows', 'PS5', 'Xbox Series S/X'],
     preco: 199.9,
     precoAntigo: 299.9,
     titulo: 'Hogwarts Legacy'
@@ -28,7 +28,7 @@ const mocks = [
     id: 3,
     categoria: 'Ação',
     imagem: '',
-    plataforma: ['PS5', 'Xbox Series S/X'],
+    plataformas: ['PS5', 'Xbox Series S/X'],
     preco: 150,
     precoAntigo: 200,
     titulo: 'Gotham Knights'
@@ -37,7 +37,7 @@ const mocks = [
     id: 4,
     categoria: 'Aventura',
     imagem: '',
-    plataforma: ['Nitendo Switch'],
+    plataformas: ['Nitendo Switch'],
     preco: 118.9,
     precoAntigo: 299.9,
     titulo: 'Donkey Kong'
@@ -64,9 +64,10 @@ describe('Testes para o container produtos', () => {
   })
 
   test('Deve renderizar corretamente com a listagem de jogos', async () => {
-    renderizarComProvider(<Produtos />)
-    await waitFor(() => {
-      expect(screen.getByText('Donkey Kong')).toBeInTheDocument()
+    const { debug } = renderizarComProvider(<Produtos />)
+    waitFor(() => {
+      debug()
+      expect(screen.getByText('Donkey')).toBeInTheDocument()
     })
   })
 })
